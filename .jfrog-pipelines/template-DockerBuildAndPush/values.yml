@@ -1,5 +1,5 @@
 Pipeline:
-  name: docker_template
+  name: Docker_template
 
 GitRepo:
   name: sampleRepo
