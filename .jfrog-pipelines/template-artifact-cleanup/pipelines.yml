@@ -1,4 +1,0 @@
-valuesFilePath: values.yml
-
-include:
-  template: myCompany/artifactCleanup/1.0.0
