@@ -9,5 +9,5 @@ publishTemplate:
   name: artifactCleanup
   version: 1.0.0
   pipelineName: publish_artifact_cleanup_template
-  artifactoryIntegration: shilpa_test
-  jfrogAccessTokenIntegration: shilpa-token
+  artifactoryIntegration: shilpa_art
+  jfrogAccessTokenIntegration: shilpa_token
