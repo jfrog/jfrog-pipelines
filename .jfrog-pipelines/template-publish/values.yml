@@ -1,5 +1,5 @@
 templateRepository:
-  gitProvider: myGitIntegration
+  gitProvider: shilpa_test
   path: "jfrog/jfrog-pipelines"
   branch: master
   templateFolder: templates/artifactory/cleanup/artifact-cleanup
@@ -9,5 +9,5 @@ publishTemplate:
   name: artifactCleanup
   version: 1.0.0
   pipelineName: publish_artifact_cleanup_template
-  artifactoryIntegration: myArtIntegration
-  jfrogAccessTokenIntegration: myAccessTokenIntegration
+  artifactoryIntegration: shilpa_test
+  jfrogAccessTokenIntegration: shilpa-token
