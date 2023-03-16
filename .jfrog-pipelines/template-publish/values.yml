@@ -10,4 +10,4 @@ publishTemplate:
   version: 1.0.0
   pipelineName: publish_artifact_cleanup_template
   artifactoryIntegration: shilpa_art
-  jfrogAccessTokenIntegration: shilpa_token
+  jfrogAccessTokenIntegration: shilpa_token1
