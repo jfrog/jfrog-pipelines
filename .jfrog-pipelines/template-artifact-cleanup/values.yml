@@ -1,7 +1,7 @@
 shared:
   input:
     # [Required]
-    jfrogTokenIntegration: jf_token
+    jfrogTokenIntegration: shilpa_token1
 
 artifactCleanup:
   metadata:
