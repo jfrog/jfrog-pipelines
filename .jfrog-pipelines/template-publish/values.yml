@@ -1,6 +1,6 @@
 templateRepository:
   gitProvider: shilpa_test
-  path: "jfrog/jfrog-pipelines"
+  path: "shilpakallaganad19/jfrog-pipelines"
   branch: master
   templateFolder: templates/artifactory/cleanup/artifact-cleanup
 
