@@ -4,7 +4,7 @@ pipelines:
       - name: scan_controller
         type: TriggerPipeline
         configuration:
-          pipelineName: scanner_pipeline
+          pipelineName: scanner_pipeline_2
           stepName: scan_it
           integrations:
             - name: tokenIntegration
