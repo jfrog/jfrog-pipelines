@@ -24,7 +24,7 @@ pipelines:
           onComplete:
             - echo "Final status is $nested_run_status"
  
-  - name: scanner_pipeline
+  - name: scanner_pipeline_2
     steps:
       - name: scan_it
         type: Bash
