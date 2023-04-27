@@ -1,10 +1,10 @@
 pipelines:
-  - name: top_pipeline
+  - name: top_embed_pipeline
     steps:
       - name: scan_controller
         type: TriggerPipeline
         configuration:
-          pipelineName: scanner_pipeline_2
+          pipelineName: scanner_embed_pipeline
           stepName: scan_it
           integrations:
             - name: tokenIntegration
@@ -24,7 +24,7 @@ pipelines:
           onComplete:
             - echo "Final status is $nested_run_status"
  
-  - name: scanner_pipeline_2
+  - name: scanner_embed_pipeline
     steps:
       - name: scan_it
         type: Bash
