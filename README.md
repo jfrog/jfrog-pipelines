@@ -1,5 +1,5 @@
 # JFrog Pipelines
-[![JFrog Pipelines](https://pipelines.jfrog.io/pipelines/api/v1/badges/myPipelines/viewPipelines)](https://pipelines.jfrog.io/ui/pipelines/myPipelines/viewPipelines)
+[![Artifacts Cleanup](https://pipelines.jfrog.io/pipelines/api/v1/badges/project/templates/pipelines/artifact_cleanup?text=JFrogPipelines)](https://pipelines.jfrog.io/ui/pipelines/myPipelines/Templates/artifact_cleanup?projectKey=templates)
 
 This document contains -
 - All the open source Pipelines artifacts like `templates`, `tasks` & `extensions`.
