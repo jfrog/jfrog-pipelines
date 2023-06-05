@@ -1,4 +1,5 @@
 # JFrog Pipelines
+[![JFrog Pipelines](https://pipelines.jfrog.io/pipelines/api/v1/badges/myPipelines/viewPipelines)](https://pipelines.jfrog.io/ui/pipelines/myPipelines/viewPipelines)
 
 This document contains -
 - All the open source Pipelines artifacts like `templates`, `tasks` & `extensions`.
