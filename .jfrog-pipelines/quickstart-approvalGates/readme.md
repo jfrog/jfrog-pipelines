@@ -1,6 +1,6 @@
 # Approval Gates
 
-[![Approval Gates](https://pipelines.jfrog.io/pipelines/api/v1/badges/project/quickstarts/pipelines/Approval_Gates_Pipeline?text=JFrogPipelines)](https://pipelines.jfrog.io/ui/pipelines/myPipelines/Quickstarts/Approval_Gates_Pipeline?branch=&projectKey=quickstarts)
+[![Approval Gates](https://pipelines.jfrog.io/pipelines/api/v1/badges/project/quickstarts/pipelines/Helm_Blue_Green_Quickstart?text=JFrogPipelines)](https://pipelines.jfrog.io/ui/pipelines/myPipelines/Quickstarts/Approval_Gates_Pipeline?branch=&projectKey=quickstarts)
 
 Approval Gates enables you to insert a manual approval process for a step in your pipeline. When enabled, the step (and the pipeline run) goes into Pending Approval status when upstream steps finish and the run execution reaches that step. The following can be defined as part of this approval process:
 
