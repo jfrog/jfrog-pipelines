@@ -1,4 +1,8 @@
 # Go CI Template
+
+[![Go CI Template](https://pipelines.jfrog.io/pipelines/api/v1/badges/project/templates/pipelines/template_go_ci?text=JFrogPipelines)]
+(https://pipelines.jfrog.io/ui/pipelines/myPipelines/Templates/template_go_ci?projectKey=templates)
+
 This template will create a pipeline that showcases the features of the [GoBuild](https://www.jfrog.com/confluence/display/JFROG/GoBuild), [GoPublishBinary](https://www.jfrog.com/confluence/display/JFROG/GoPublishBinary), and [GoPublishModule](https://www.jfrog.com/confluence/display/JFROG/GoPublishModule) native steps, with the option to use just GoBuild and GoPublishBinary, just GoPublishModule, or all three.
 
 ## Live Example 
