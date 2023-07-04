@@ -53,26 +53,26 @@ pipelines:
       #- name: create_with_release_bundle
         #type: Bash
         #configuration:
-          inputSteps:
-            - name: create_only_artifact
-          inputResources:
-            - name: signed_git
-          integrations:
-            - name: myArtifactory
-        execution:
-          onExecute:
-            - cd $res_signed_git_resourcePath
-            - |
-              echo '{ "files": [ { "aql": { "items.find": { "repo": { "$eq": "test-km-generic-local" } } } } ] }' > spec.json
-            - jf rt s --spec=spec.json
-            - jf ds rbc --spec=spec.json kunal_test_rb_${run_id} 1.0.0 --sign --detailed-summary > summaryOutput.json
-            - save_artifact_info 'releaseBundle' './summaryOutput.json' --release-bundle-name kunal_test_rb_${run_id} --release-bundle-version 1.0.0
+          #inputSteps:
+            #- name: create_only_artifact
+          #inputResources:
+            #- name: signed_git
+          #integrations:
+            #- name: myArtifactory
+        #execution:
+          #onExecute:
+            #- cd $res_signed_git_resourcePath
+            #- |
+              #echo '{ "files": [ { "aql": { "items.find": { "repo": { "$eq": "test-km-generic-local" } } } } ] }' > spec.json
+            #- jf rt s --spec=spec.json
+            #- jf ds rbc --spec=spec.json kunal_test_rb_${run_id} 1.0.0 --sign --detailed-summary > summaryOutput.json
+            #- save_artifact_info 'releaseBundle' './summaryOutput.json' --release-bundle-name kunal_test_rb_${run_id} --release-bundle-version 1.0.0
             
-      - name: print_info
-        type: Bash
-        configuration:
-          inputSteps:
-            - name: create_with_release_bundle
-        execution:
-          onExecute:
-            - validate_artifact buildInfo --build-name $JFROG_CLI_BUILD_NAME --build-number $JFROG_CLI_BUILD_NUMBER
+      #- name: print_info
+        #type: Bash
+        #configuration:
+          #inputSteps:
+            #- name: create_with_release_bundle
+        #execution:
+          #onExecute:
+            #- validate_artifact buildInfo --build-name $JFROG_CLI_BUILD_NAME --build-number $JFROG_CLI_BUILD_NUMBER
