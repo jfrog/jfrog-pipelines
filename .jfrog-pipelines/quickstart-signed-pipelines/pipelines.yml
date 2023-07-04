@@ -50,9 +50,9 @@ pipelines:
             - jfrog rt upload server1.js test-km-generic-local --detailed-summary > summaryOutput.json
             - save_artifact_info 'file' './summaryOutput.json'
 
-      - name: create_with_release_bundle
-        type: Bash
-        configuration:
+      #- name: create_with_release_bundle
+        #type: Bash
+        #configuration:
           inputSteps:
             - name: create_only_artifact
           inputResources:
