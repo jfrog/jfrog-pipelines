@@ -16,7 +16,7 @@
     "url": "https://github.com/Khazinawaz/matrix-tut/issues"
   },
   "devDependencies": {
-    "jest": "^24.0.0"
+    "jest": "^29.6.1"
   },
   "homepage": "https://github.com/Khazinawaz/matrix-tut#readme"
 }
