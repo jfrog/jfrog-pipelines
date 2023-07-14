@@ -1,0 +1,36 @@
+resources:
+  - name: Git_Tag_Repo
+    type: GitRepo
+    configuration:
+      gitProvider: myGithub
+      path: jfrog/jfrog-pipelines
+      branches:
+        include: ^{{ $.Values.mainBranch }}$
+      cloneProtocol: https
+      
+pipelines:
+  - name: GitTagPipeline
+    steps:
+      - name: sample_step
+        type: Bash
+        configuration:
+          inputResources:
+            - name: Git_Tag_Repo
+          integrations:
+            - name: myGithub
+        execution:
+          onStart:
+           - echo "Onstart"
+          onSuccess:
+            - echo "Uploaded"
+          onFailure:
+            - echo "Failed to upload"
+          onComplete:
+            - echo $res_Git_Tag_Repo_resourcePath
+            - epochTime=$(date +%s)
+            - echo $epochTime
+            - tagName="sampleTag_${epochTime}"
+            - echo ${tagName}
+            - pushd $res_Git_Tag_Repo_resourcePath
+            - git tag ${tagName}
+            - git push origin ${tagName}
