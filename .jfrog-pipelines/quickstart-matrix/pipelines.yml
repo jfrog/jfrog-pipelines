@@ -10,7 +10,7 @@ resources:
         include: ^master$
       gitProvider: {{ .Values.gitProvider }}        # Change to your own GitHub integration name
       
-  - name: cron_trigger
+  - name: cron_trigger_matrix
     type: CronTrigger
     configuration:
       interval: '0 1 * * *'       
@@ -24,7 +24,7 @@ pipelines:
         configuration:
           inputResources:
             - name: matrix_repo
-            - name: cron_trigger
+            - name: cron_trigger_matrix
         stepletMultipliers:
           environmentVariables:             # Sets of environment variables for steplets
             - animal:    dog                # - Set 1
