@@ -22,4 +22,4 @@ This document contains -
 ### Templates
 - [Artifactory - Artifact Clean up](templates/artifactory/cleanup/artifact-cleanup/README.md)
 
-____
+____________
