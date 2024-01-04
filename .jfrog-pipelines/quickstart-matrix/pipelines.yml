@@ -51,15 +51,11 @@ pipelines:
         execution:
           onExecute:
             - echo "Preparing the code base"
-            - echo ${res_matrix_repo_resourcePath}
-            - pushd ${res_matrix_repo_resourcePath}
-            - pwd
-            - ls -al
-            - pushd "${res_matrix_repo_resourcePath}/quickstart-matrix/app"
+            - pushd "${res_matrix_repo_resourcePath}/.jfrog-pipelines/quickstart-matrix/app"
             - npm install
             - popd
             - mkdir -p app
-            - cp -r "${res_matrix_repo_resourcePath}/app/." ./app/
+            - cp -r "${res_matrix_repo_resourcePath}/.jfrog-pipelines/quickstart-matrix/app/." ./app/
 
       - name: test
         type: Matrix
