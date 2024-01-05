@@ -7,7 +7,7 @@ pipelines:
           pipelineName: scanner_embed_pipeline
           stepName: scan_it
           integrations:
-            - name: tokenIntegration
+            - name: tokenIntegrationNag
           environmentVariables:
             scan_target:
               default: "hello-world"
