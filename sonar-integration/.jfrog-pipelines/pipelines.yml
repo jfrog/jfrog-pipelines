@@ -1,18 +1,5 @@
-valuesFilePath: ./values.yml
-
 resources:
-  - name: {{ .Values.primaryResource }} #Yaml repo
-    type: GitRepo
-    configuration:
-      path: {{ .Values.repoPath }}
-      gitProvider: {{ .Values.gitProvider }}
-      branches:
-        include: ^{{ .Values.mainBranch }}$
-      cloneProtocol: {{ .Values.protocol }}
-      buildOn:
-        commit: {{ .Values.buildOnCommit }}
-
-  - name: sonar_repo # source code repo
+  - name: Code_Analysis
     type: GitRepo
     configuration:
       path: jfrog/jfrog-pipelines/simple-java-maven-app-for-SonarAnalysis
@@ -20,28 +7,32 @@ resources:
       branches:
         include: main
 
-  - name: git_sonar #sonar cloud
+  - name: MavenApp
+    type: GitRepo
+    configuration:
+      path: jfrog/jfrog-pipelines/simple-java-maven-app-for-SonarAnalysis
+      gitProvider: GitHubIntegration      
+      buildOn:
+        commit: false
+        pullRequestCreate: true
+
+  - name: SonarReport
     type: CodeAnalysis
     configuration:
       integration: SonarIntegration
 
 pipelines:
-  - name: {{ .Values.pipelineName }}
+  - name: SonarIntegration
     configuration:
       jfrogCliVersion: 2
-      environmentVariables:
-        readOnly:
-          JFROG_TASK_DEBUG: "true"
-          JFROG_CLI_LOG_LEVEL: debug
     steps:
-      - name: test_{{.Values.taskName }}
+      - name: Scan Code
         type: Bash
         configuration:
-          inputResources: # take yaml and source code resourse 
-            - name: {{ .Values.primaryResource }}
-            - name: sonar_repo
+          inputResources:
+            - name: Code_Analysis
           outputResources:
-            - name: git_sonar # sonar cloud
+            - name: SonarReport
           integrations: 
             - name: JFrogPlatformIntegration # artifactory integration to pull task from artifact
           runtime:
@@ -53,29 +44,14 @@ pipelines:
                 name: pipelines.jfrog.io/example-docker-local/sonar-scanner
                 tag: latest
           
-        execution:
-          #onStart: # we are installing sonnar scan cli
-            #- echo "Starting execution on {{ .Values.taskName }}"
-            #- pushd /opt
-            #- wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-            #- unzip sonar-scanner-cli-5.0.1.3006-linux.zip
-            #- mv sonar-scanner-5.0.1.3006-linux /opt/sonar-scanner
-            #- cd /opt/sonar-scanner
-            #- ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
-            
-            
+        execution:            
           onExecute:
             - task: jfrog/sonar@v1.0.0
               id: code_analysis_version
               input:
-                codeResourceName: git_sonar # sonar cloud
-                gitResourceName: sonar_repo # source code
+                codeResourceName: SonarReport
+                gitResourceName: MavenApp
                 gitBranch: main #source code branch
                 orgName: jfrogsonarcodeanalysis  # sonar org name
                 projectKey: jfrogsonarcodeanalysis_mavenapp # sonar org_project name
-          onFailure:
-            - echo "Task Test failed"
-          onSuccess:
-            - echo "Test Task execution is a success without any errors"
-          onComplete:
-            - echo "Test Task execution completed."
+                extraSonarOptions: "-Dsonar.pullrequest.key=$res_demo_app_git_pr1_pullRequestNumber -Dsonar.pullrequest.branch=$res_demo_app_git_pr1_headCommitRef -Dsonar.pullrequest.base=$res_demo_app_git_pr1_pullRequestBaseBranch"                
