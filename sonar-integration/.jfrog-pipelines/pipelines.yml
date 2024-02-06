@@ -34,12 +34,12 @@ pipelines:
           outputResources:
             - name: demo_app_sonar_report
           integrations:
-            - name: JFrogPlatformIntegration
+            - name: s_artifactory
           runtime:
             type: image
             image:
               custom:
-                registry: JFrogPlatformIntegration
+                registry: s_artifactory
                 sourceRepository: example-docker-local
                 name: pipelines.jfrog.io/artifactory/example-docker-local/sonar-scanner
                 tag: latest
@@ -62,12 +62,12 @@ pipelines:
           outputResources:
             - name: demo_app_sonar_report
           integrations:
-            - name: JFrogPlatformIntegration
+            - name: s_artifactory
           runtime:
             type: image
             image:
               custom:
-                registry: JFrogPlatformIntegration
+                registry: s_artifactory
                 sourceRepository: example-docker-local
                 name: pipelines.jfrog.io/artifactory/example-docker-local/sonar-scanner
                 tag: latest
