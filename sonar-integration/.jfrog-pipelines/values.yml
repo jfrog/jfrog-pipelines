@@ -2,9 +2,9 @@ taskName: code_analysis
 primaryResource: code_analysis
 secondaryResource: code_analysis_publish
 gitProvider: GitHubIntegration
-artifactory: myArtifactory
+artifactory: JFrogPlatformIntegration
 repoPath: jfrog/jfrog-pipelines
-mainBranch: master
+mainBranch: main
 protocol: https
 buildOnCommit: true
 pipelineName: SonarIntegration
