@@ -34,7 +34,7 @@ pipelines:
           outputResources:
             - name: SonarReport
           integrations: 
-            - name: myArtifactory # artifactory integration to pull task from artifact
+            - name: JFrogPlatformIntegration # artifactory integration to pull task from artifact
           runtime:
             type: image
             image:
