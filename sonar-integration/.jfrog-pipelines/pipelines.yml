@@ -2,7 +2,7 @@ resources:
   - name: Code_Analysis
     type: GitRepo
     configuration:
-      path: jfrog/jfrog-pipelines/simple-java-maven-app-for-SonarAnalysis
+      path: jfrog/jfrog-pipelines/simple-java-maven-app
       gitProvider: GitHubIntegration
       branches:
         include: main
@@ -10,7 +10,7 @@ resources:
   - name: MavenApp
     type: GitRepo
     configuration:
-      path: jfrog/jfrog-pipelines/simple-java-maven-app-for-SonarAnalysis
+      path: jfrog/jfrog-pipelines/simple-java-maven-app
       gitProvider: GitHubIntegration      
       buildOn:
         commit: false
