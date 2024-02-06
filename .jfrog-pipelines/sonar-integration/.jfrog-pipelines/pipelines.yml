@@ -48,7 +48,7 @@ pipelines:
             type: image
             image:
               custom:
-                registry: JFrogPlatform Integration
+                registry: JFrogPlatformIntegration
                 sourceRepository: example-docker-local
                 name: pipelines.jfrog.io/example-docker-local/sonar-scanner
                 tag: latest
