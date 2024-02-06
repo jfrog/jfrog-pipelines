@@ -26,7 +26,7 @@ pipelines:
     configuration:
       jfrogCliVersion: 2
     steps:
-      - name: Scan Code
+      - name: ScanCode
         type: Bash
         configuration:
           inputResources:
