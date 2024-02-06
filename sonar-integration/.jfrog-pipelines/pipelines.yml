@@ -35,16 +35,24 @@ pipelines:
             - name: SonarReport
           integrations: 
             - name: JFrogPlatformIntegration # artifactory integration to pull task from artifact
-          runtime:
-            type: image
-            image:
-              custom:
-                registry: artifactory
-                sourceRepository: example-docker-local
-                name: pipelines.jfrog.io/example-docker-local/sonar-scanner
-                tag: latest
+#         runtime:
+#           type: image
+#           image:
+#             custom:
+#               registry: artifactory
+#               sourceRepository: example-docker-local
+#               name: pipelines.jfrog.io/example-docker-local/sonar-scanner
+#               tag: latest
           
-        execution:            
+        execution:
+          onStart: # we are installing sonnar scan cli
+            - echo "Starting execution on {{ .Values.taskName }}"
+            - pushd /opt
+            - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+            - unzip sonar-scanner-cli-5.0.1.3006-linux.zip
+            - mv sonar-scanner-5.0.1.3006-linux /opt/sonar-scanner
+            - cd /opt/sonar-scanner
+            - ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner        
           onExecute:
             - task: jfrog/sonar@v1.0.0
               id: code_analysis_version
