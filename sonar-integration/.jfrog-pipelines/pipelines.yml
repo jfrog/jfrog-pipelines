@@ -39,7 +39,7 @@ pipelines:
             type: image
             image:
               custom:
-                registry: artifactory
+                registry: JFrogPlatformIntegration
                 sourceRepository: docker-staging-local
                 name: sonarpipdemo.jfrogdev.org/docker-staging-local/sonar-scanner
                 tag: latest
@@ -67,7 +67,7 @@ pipelines:
             type: image
             image:
               custom:
-                registry: artifactory
+                registry: JFrogPlatformIntegration
                 sourceRepository: example-docker-local
                 name: https://pipelines.jfrog.io/artifactory/example-docker-local/sonar-scanner
                 tag: latest
