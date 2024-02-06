@@ -15,7 +15,7 @@ resources:
   - name: sonar_repo # source code repo
     type: GitRepo
     configuration:
-      path: jfrog/jfrog-pipelies/.jfrog-pipelines/simple-java-maven-app-for-SonarAnalysis
+      path: jfrog/jfrog-pipelies/simple-java-maven-app-for-SonarAnalysis
       gitProvider: GitHubIntegration
       branches:
         include: master
