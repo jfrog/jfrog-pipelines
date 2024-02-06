@@ -18,7 +18,7 @@ resources:
       path: jfrog/jfrog-pipelines/simple-java-maven-app-for-SonarAnalysis
       gitProvider: GitHubIntegration
       branches:
-        include: master
+        include: main
 
   - name: git_sonar #sonar cloud
     type: CodeAnalysis
