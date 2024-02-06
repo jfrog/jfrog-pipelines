@@ -43,7 +43,7 @@ pipelines:
           outputResources:
             - name: git_sonar # sonar cloud
           integrations: 
-            - name: JFrogPlatformIntegration # artifactory integration to pull task from artifact
+            - name: myArtifactory # artifactory integration to pull task from artifact
           runtime:
             type: image
             image:
