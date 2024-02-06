@@ -2,7 +2,7 @@ resources:
   - name: Code_Analysis
     type: GitRepo
     configuration:
-      path: jfrog/jfrog-pipelines/simple-java-maven-app-for-SonarAnalysis/latest
+      path: jfrog/jfrog-pipelines/simple-java-maven-app-for-SonarAnalysis
       gitProvider: GitHubIntegration
       branches:
         include: main
@@ -41,7 +41,7 @@ pipelines:
               custom:
                 registry: artifactory
                 sourceRepository: example-docker-local
-                name: pipelines.jfrog.io/example-docker-local/sonar-scanner
+                name: pipelines.jfrog.io/example-docker-local/sonar-scanner/latest
                 tag: latest
           
         execution:            
