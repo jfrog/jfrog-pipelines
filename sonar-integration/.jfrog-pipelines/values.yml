@@ -2,7 +2,7 @@ taskName: code_analysis
 primaryResource: code_analysis
 secondaryResource: code_analysis_publish
 gitProvider: GitHubIntegration
-artifactory: artifactory
+artifactory: JFrogPlatformIntegration
 repoPath: jfrog/jfrog-pipelines
 mainBranch: master
 protocol: https
