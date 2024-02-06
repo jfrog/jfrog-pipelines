@@ -49,6 +49,7 @@ pipelines:
               input:
                 codeResourceName: demo_app_sonar_report
                 gitResourceName: demo_app_git
+                projectFolder: simple-java-maven-app
                 gitBranch: main
                 orgName: jfrogsonarcodeanalysis
                 projectKey: jfrogsonarcodeanalysis_mavenapp
@@ -77,7 +78,7 @@ pipelines:
               input:
                 codeResourceName: demo_app_sonar_report
                 gitResourceName: demo_app_git_pr1
-                gitBranch: master
-                orgName: kunal-mazumdar
-                projectKey: kunal-mazumdar_demo
+                gitBranch: main
+                orgName: jfrogsonarcodeanalysis
+                projectKey: jfrogsonarcodeanalysis_mavenapp
                 extraSonarOptions: "-Dsonar.pullrequest.key=$res_demo_app_git_pr1_pullRequestNumber -Dsonar.pullrequest.branch=$res_demo_app_git_pr1_headCommitRef -Dsonar.pullrequest.base=$res_demo_app_git_pr1_pullRequestBaseBranch"
