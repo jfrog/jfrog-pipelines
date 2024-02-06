@@ -41,7 +41,7 @@ pipelines:
               custom:
                 registry: myArtifactory
                 sourceRepository: example-docker-local
-                name: pipelines.jfrog.io/artifactory/example-docker-local/sonar-scanner
+                name: pipelines.jfrog.io/example-docker-local/sonar-scanner
                 tag: latest
         execution:
           onExecute:
@@ -69,7 +69,7 @@ pipelines:
               custom:
                 registry: myArtifactory
                 sourceRepository: example-docker-local
-                name: pipelines.jfrog.io/artifactory/example-docker-local/sonar-scanner
+                name: pipelines.jfrog.io/example-docker-local/sonar-scanner
                 tag: latest
         execution:
           onExecute:
