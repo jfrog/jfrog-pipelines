@@ -72,7 +72,7 @@ pipelines:
                 gitResourceName: sonar_repo # source code
                 gitBranch: master #source code branch
                 orgName: jfrogsonarcodeanalysis  # sonar org name
-                projectKey: jfrogsonarcodeanalysis_MavenAPP # sonar org_project name
+                projectKey: jfrogsonarcodeanalysis_mavenapp # sonar org_project name
           onFailure:
             - echo "Task Test failed"
           onSuccess:
