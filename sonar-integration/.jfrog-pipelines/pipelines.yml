@@ -70,7 +70,7 @@ pipelines:
               input:
                 codeResourceName: git_sonar # sonar cloud
                 gitResourceName: sonar_repo # source code
-                gitBranch: master #source code branch
+                gitBranch: main #source code branch
                 orgName: jfrogsonarcodeanalysis  # sonar org name
                 projectKey: jfrogsonarcodeanalysis_mavenapp # sonar org_project name
           onFailure:
