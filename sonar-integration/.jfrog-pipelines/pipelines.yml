@@ -40,7 +40,7 @@ pipelines:
             image:
               custom:
                 registry: artifactory
-                sourceRepository: docker-staging-local
+                sourceRepository: example-docker-local
                 name: pipelines.jfrog.io/artifactory/example-docker-local/sonar-scanner
                 tag: latest
         execution:
