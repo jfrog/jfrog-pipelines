@@ -1,0 +1,12 @@
+taskName: code_analysis
+primaryResource: code_analysis
+secondaryResource: code_analysis_publish
+gitProvider: GitHubIntegration
+artifactory: artifactory
+repoPath: jfrog/jfrog-pipelines
+mainBranch: master
+protocol: https
+buildOnCommit: true
+pipelineName: SonarIntegration
+publishOnCommit: false
+publishTaskName: sonar-code-analysis
