@@ -39,9 +39,9 @@ pipelines:
             type: image
             image:
               custom:
-                registry: artifactory
+                registry: JFrogPlatformIntegration
                 sourceRepository: example-docker-local
-                name: pipelines.jfrog.io/example-docker-local/sonar-scanner
+                name: pipelines.jfrog.io/example-docker-local/sonar-scanner/latest
                 tag: latest
           
         execution:            
