@@ -2,7 +2,7 @@ resources:
   - name: demo_app_git
     type: GitRepo
     configuration:
-      path: jfrog/jfrog-pipelines/simple-java-maven-app
+      path: jfrog/jfrog-pipelines
       gitProvider: GitHubIntegration
       branches:
         include: main
