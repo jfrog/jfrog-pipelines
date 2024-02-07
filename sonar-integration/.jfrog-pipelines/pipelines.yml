@@ -1,28 +1,19 @@
 resources:
-  - name: demo_app_git
+  - name: maven_app
     type: GitRepo
     configuration:
       path: jfrog/jfrog-pipelines
       gitProvider: GitHubIntegration
       branches:
         include: main
-
-  - name: demo_app_git_pr1
-    type: GitRepo
-    configuration:
-      path: jfrog/jfrog-pipelines
-      gitProvider: GitHubIntegration     
-      buildOn:
-        commit: false
-        pullRequestCreate: true
-
-  - name: demo_app_sonar_report
+        
+  - name: maven_app_sonar_report
     type: CodeAnalysis
     configuration:
       integration: SonarIntegration
 
 pipelines:
-  - name: sonar_demo_pipeline
+  - name: sonar_integration_pipeline
     configuration:
       jfrogCliVersion: 2
     steps:
@@ -30,9 +21,9 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: demo_app_git            
+            - name: maven_app           
           outputResources:
-            - name: demo_app_sonar_report
+            - name: maven_app_sonar_report
           integrations:
             - name: myArtifactory
           runtime:
@@ -47,38 +38,9 @@ pipelines:
           onExecute:
             - task: jfrog/sonar@v1.0.0
               input:
-                codeResourceName: demo_app_sonar_report
-                gitResourceName: demo_app_git
+                codeResourceName: maven_app_sonar_report
+                gitResourceName: maven_app
                 projectFolder: simple-java-maven-app
                 gitBranch: main
                 orgName: jfrogsonarcodeanalysis
                 projectKey: jfrogsonarcodeanalysis_mavenapp
-
-
-      - name: scan_pr
-        type: Bash
-        configuration:
-          inputResources:
-            - name: demo_app_git_pr1
-          outputResources:
-            - name: demo_app_sonar_report
-          integrations:
-            - name: myArtifactory
-          runtime:
-            type: image
-            image:
-              custom:
-                registry: myArtifactory
-                sourceRepository: example-docker-local
-                name: pipelines.jfrog.io/example-docker-local/sonar-scanner
-                tag: latest
-        execution:
-          onExecute:
-            - task: jfrog/sonar@v1.0.0
-              input:
-                codeResourceName: demo_app_sonar_report
-                gitResourceName: demo_app_git_pr1
-                gitBranch: main
-                orgName: jfrogsonarcodeanalysis
-                projectKey: jfrogsonarcodeanalysis_mavenapp
-                extraSonarOptions: "-Dsonar.pullrequest.key=$res_demo_app_git_pr1_pullRequestNumber -Dsonar.pullrequest.branch=$res_demo_app_git_pr1_headCommitRef -Dsonar.pullrequest.base=$res_demo_app_git_pr1_pullRequestBaseBranch"
