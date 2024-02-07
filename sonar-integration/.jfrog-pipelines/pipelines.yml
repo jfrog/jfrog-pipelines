@@ -78,6 +78,7 @@ pipelines:
               input:
                 codeResourceName: demo_app_sonar_report
                 gitResourceName: demo_app_git_pr1
+                projectFolder: simple-java-maven-app
                 gitBranch: main
                 orgName: jfrogsonarcodeanalysis
                 projectKey: jfrogsonarcodeanalysis_mavenapp
