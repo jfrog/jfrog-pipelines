@@ -81,4 +81,4 @@ pipelines:
                 gitBranch: main
                 orgName: jfrogsonarcodeanalysis
                 projectKey: jfrogsonarcodeanalysis_mavenapp
-                extraSonarOptions: "-Dsonar.pullrequest.key=$res_demo_app_git_pr1_pullRequestNumber -Dsonar.pullrequest.branch=$res_demo_app_git_pr1_headCommitRef -Dsonar.pullrequest.base=$res_demo_app_git_pr1_pullRequestBaseBranch"
+                extraSonarOptions: "-Dsonar.pullrequest.key=$res_Maven_App_PR1_pullRequestNumber -Dsonar.pullrequest.branch=$res_Maven_App_PR1_headCommitRef -Dsonar.pullrequest.base=$res_Maven_App_PR1_pullRequestBaseBranch"
