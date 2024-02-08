@@ -2,7 +2,7 @@ template: true   # required for local templates
 valuesFilePath: ./values.yml
 
 resources:
-  - name: myGitRepo
+  - name: sampleGitRepo
     type: GitRepo
     configuration:
       # SCM integration where the repository is located
@@ -13,13 +13,13 @@ resources:
         # Specifies which branches will trigger dependent steps
         include: master
 
-  - name: thisPropertyBag
+  - name: samplePropertyBag
     type: PropertyBag
     configuration:
       commitSha: 1
       runID: 1
       
-  - name: cron_trigger
+  - name: sample_cron_trigger
     type: CronTrigger
     configuration:
       interval: '0 4 * * *'     
@@ -32,8 +32,8 @@ pipelines:
         configuration:
           inputResources:
             # Sets up step to be triggered when there are commit events to myFirstRepo
-            - name: myGitRepo
-            - name: cron_trigger
+            - name: sampleGitRepo
+            - name: sample_cron_trigger
         execution:
           onExecute:
             # Data from input resources is available as env variables in the step
@@ -65,7 +65,7 @@ pipelines:
           inputSteps:
             - name: p1_s2
           outputResources:
-            - name: thisPropertyBag
+            - name: samplePropertyBag
         execution:
           onExecute:
             - echo $current_runid
@@ -74,7 +74,7 @@ pipelines:
             # Uses an utility function to update the output resource with the commitSha that triggered this run
             # Dependent pipelines can be configured to trigger when this resource is updated
             # Utility functions documentation: https://www.jfrog.com/confluence/display/JFROG/Pipelines+Utility+Functions
-            - write_output thisPropertyBag commitSha=$commitSha runID=$current_runid
+            - write_output samplePropertyBag commitSha=$commitSha runID=$current_runid
 
   - name: pipeline_of_pipelines_2
     steps:
@@ -82,9 +82,9 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            # Sets up step to be triggered when thisPropertyBag is updated
-            - name: thisPropertyBag
+            # Sets up step to be triggered when samplePropertyBag is updated
+            - name: samplePropertyBag
         execution:
           onExecute:
             # Retrieves the commitSha from input resource
-            - echo "CommitSha is $res_thisPropertyBag_commitSha"
+            - echo "CommitSha is $res_samplePropertyBag_commitSha"
