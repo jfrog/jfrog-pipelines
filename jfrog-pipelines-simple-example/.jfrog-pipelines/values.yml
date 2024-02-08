@@ -1,3 +1,3 @@
 myRepo:
-  gitProvider: myGithub
-  path: jfrog/jfrog-pipelines-simple-example
+  gitProvider: GitHubIntegration_Sample
+  path: jfrog/jfrog-pipelines/jfrog-pipelines-simple-example
