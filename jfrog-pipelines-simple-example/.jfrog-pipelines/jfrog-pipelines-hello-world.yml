@@ -25,7 +25,7 @@ resources:
       interval: '0 4 * * *'     
 
 pipelines:
-  - name: pipeline_of_pipelines_1
+  - name: sample_pipelines_1
     steps:
       - name: p1_s1
         type: Bash
@@ -76,7 +76,7 @@ pipelines:
             # Utility functions documentation: https://www.jfrog.com/confluence/display/JFROG/Pipelines+Utility+Functions
             - write_output samplePropertyBag commitSha=$commitSha runID=$current_runid
 
-  - name: pipeline_of_pipelines_2
+  - name: sample_pipelines_2
     steps:
       - name: p2_s1
         type: Bash
