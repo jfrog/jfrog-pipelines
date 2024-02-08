@@ -74,7 +74,7 @@ pipelines:
             # Uses an utility function to update the output resource with the commitSha that triggered this run
             # Dependent pipelines can be configured to trigger when this resource is updated
             # Utility functions documentation: https://www.jfrog.com/confluence/display/JFROG/Pipelines+Utility+Functions
-            - write_output samplePropertyBag commitSha=$commitSha runID=$_runid
+            - write_output samplePropertyBag commitSha=$commitSha runID=$current_runid
 
   - name: sample_pipelines_2
     steps:
