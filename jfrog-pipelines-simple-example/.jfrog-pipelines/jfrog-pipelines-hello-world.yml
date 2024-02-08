@@ -2,7 +2,7 @@ template: true   # required for local templates
 valuesFilePath: ./values.yml
 
 resources:
-  - name: sampleGitRepo
+  - name: myGitRepo
     type: GitRepo
     configuration:
       # SCM integration where the repository is located
@@ -13,13 +13,13 @@ resources:
         # Specifies which branches will trigger dependent steps
         include: master
 
-  - name: samplePropertyBag
+  - name: thisPropertyBag
     type: PropertyBag
     configuration:
       commitSha: 1
       runID: 1
       
-  - name: sample_cron_trigger
+  - name: cron_trigger
     type: CronTrigger
     configuration:
       interval: '0 4 * * *'     
@@ -32,8 +32,8 @@ pipelines:
         configuration:
           inputResources:
             # Sets up step to be triggered when there are commit events to myFirstRepo
-            - name: sampleGitRepo
-            - name: sample_cron_trigger
+            - name: myGitRepo
+            - name: cron_trigger
         execution:
           onExecute:
             # Data from input resources is available as env variables in the step
@@ -65,7 +65,7 @@ pipelines:
           inputSteps:
             - name: p1_s2
           outputResources:
-            - name: samplePropertyBag
+            - name: thisPropertyBag
         execution:
           onExecute:
             - echo $current_runid
@@ -83,7 +83,7 @@ pipelines:
         configuration:
           inputResources:
             # Sets up step to be triggered when samplePropertyBag is updated
-            - name: samplePropertyBag
+            - name: thisPropertyBag
         execution:
           onExecute:
             # Retrieves the commitSha from input resource
