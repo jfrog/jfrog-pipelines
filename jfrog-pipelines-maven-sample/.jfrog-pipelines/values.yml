@@ -1,4 +1,4 @@
 gitProvider: GitHubIntegration_QuickStart
 artifactory: myArtifactory
-repoPath: jfrog/jfrog-pipelines-maven-sample
+repoPath: jfrog/jfrog-pipelines
 deployerRepo: quickstarts-maven-local
